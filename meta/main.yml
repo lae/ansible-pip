@@ -21,7 +21,10 @@ galaxy_info:
         - 7
     - name: Fedora
       versions:
-        - 27
+        - all
+    - name: Alpine
+      versions:
+        - all
   categories:
     - development
 dependencies: []
