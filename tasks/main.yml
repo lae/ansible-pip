@@ -15,6 +15,6 @@
 # The regular expression extracts '9.0' out of '9.0.*'
 - name: Install pip
   command: "python get-pip.py pip=={{ pip_version }}"
-  when:  __pip_version_output is failed or not __pip_version_output.stdout | search(pip_version)
+  when:  __pip_version_output is failed or not __pip_version_output.stdout | regex_search(pip_version)
   args:
     chdir: "{{ pip_src_path }}"
