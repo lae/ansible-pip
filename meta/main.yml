@@ -6,10 +6,22 @@ galaxy_info:
   license: Apache
   min_ansible_version: 1.8
   platforms:
-  - name: Ubuntu
-    versions:
-    - trusty
-    - xenial
+    - name: Ubuntu
+      versions:
+        - bionic
+        - trusty
+        - xenial
+    - name: Debian
+      versions:
+        - sid
+        - stretch
+        - jessie
+    - name: EL
+      versions:
+        - 7
+    - name: Fedora
+      versions:
+        - 27
   categories:
-  - development
+    - development
 dependencies: []

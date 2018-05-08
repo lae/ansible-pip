@@ -2,4 +2,4 @@
 - hosts: pip
   any_errors_fatal: true
   roles:
-    - ansible-role-pip
+    - lae.pip
