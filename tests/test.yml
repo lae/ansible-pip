@@ -1,0 +1,12 @@
+---
+- hosts: pip
+  tasks:
+    - name: Determine pip version
+      command: "python -c 'import pip; print(pip.__version__)'"
+      register: pip_version_result
+    - assert:
+        that:
+          - "pip_version_result.stdout | regex_search('^10.0.[0-9]+')"
+    - name: install requests
+      pip:
+        name: requests

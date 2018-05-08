@@ -1,3 +1,7 @@
+## 1.1.0
+
+Update default pip version to 10.0.x.
+
 ## 1.0.0
 
 - Install pip using `get-pip.py` instead of `apt`. See Install pip, setuptools, and wheel in the [pip documentation](https://packaging.python.org/installing/#install-pip-setuptools-and-wheel) for more information.
