@@ -2,7 +2,7 @@
 - hosts: pip
   tasks:
     - name: Determine pip version
-      shell: "pip show pip | awk '/^Version:/ {print $2}'"
+      command: "python -c 'import pip; print(pip.__version__)'"
       register: pip_version_result
     - assert:
         that:
