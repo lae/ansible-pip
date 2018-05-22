@@ -1,6 +1,10 @@
 ---
+- name: Ensure python-distutils are installed
+  package:
+    name: "{{ 'python3-distutils' if ansible_python.version.major == 3 else 'python-distutils' }}"
+
 - name: Identify the current pip's version if available
-  command: "python -c 'import pip; print(pip.__version__)'"
+  command: "{{ ansible_python_interpreter }} -c 'import pip; print(pip.__version__)'"
   register: __pip_version_output
   ignore_errors: yes
   changed_when: False
@@ -14,7 +18,7 @@
 # the desired versions of pip aren't installed
 # The regular expression extracts '9.0' out of '9.0.*'
 - name: Install pip
-  command: "python get-pip.py pip=={{ pip_version }}"
+  command: "{{ ansible_python_interpreter }} get-pip.py pip=={{ pip_version }}"
   when:  __pip_version_output is failed or not __pip_version_output.stdout | regex_search(pip_version)
   args:
     chdir: "{{ pip_src_path }}"

@@ -2,7 +2,7 @@
 - hosts: pip
   tasks:
     - name: Determine pip version
-      command: "python -c 'import pip; print(pip.__version__)'"
+      command: "{{ ansible_python_interpreter }} -c 'import pip; print(pip.__version__)'"
       register: pip_version_result
     - assert:
         that:
